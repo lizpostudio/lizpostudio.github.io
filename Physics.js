@@ -1,8 +1,8 @@
 (function (root, factory) {
   if (typeof define === 'function' && define.amd)
-    define(['exports', 'kotlin', 'klock-root-klock', 'korim-root-korim', 'kds-root-kds', 'korge-root-korge', 'korio-root-korio', 'korau-root-korau', 'kotlinx-coroutines-core', 'korma-root-korma'], factory);
+    define(['exports', 'kotlin', 'klock-root-klock', 'korim-root-korim', 'kds-root-kds', 'korge-root-korge', 'korio-root-korio', 'korau-root-korau', 'korma-root-korma', 'kotlinx-coroutines-core'], factory);
   else if (typeof exports === 'object')
-    factory(module.exports, require('kotlin'), require('klock-root-klock'), require('korim-root-korim'), require('kds-root-kds'), require('korge-root-korge'), require('korio-root-korio'), require('korau-root-korau'), require('kotlinx-coroutines-core'), require('korma-root-korma'));
+    factory(module.exports, require('kotlin'), require('klock-root-klock'), require('korim-root-korim'), require('kds-root-kds'), require('korge-root-korge'), require('korio-root-korio'), require('korau-root-korau'), require('korma-root-korma'), require('kotlinx-coroutines-core'));
   else {
     if (typeof kotlin === 'undefined') {
       throw new Error("Error loading module 'Physics'. Its dependency 'kotlin' was not found. Please, check whether 'kotlin' is loaded prior to 'Physics'.");
@@ -18,13 +18,13 @@
       throw new Error("Error loading module 'Physics'. Its dependency 'korio-root-korio' was not found. Please, check whether 'korio-root-korio' is loaded prior to 'Physics'.");
     }if (typeof this['korau-root-korau'] === 'undefined') {
       throw new Error("Error loading module 'Physics'. Its dependency 'korau-root-korau' was not found. Please, check whether 'korau-root-korau' is loaded prior to 'Physics'.");
-    }if (typeof this['kotlinx-coroutines-core'] === 'undefined') {
-      throw new Error("Error loading module 'Physics'. Its dependency 'kotlinx-coroutines-core' was not found. Please, check whether 'kotlinx-coroutines-core' is loaded prior to 'Physics'.");
     }if (typeof this['korma-root-korma'] === 'undefined') {
       throw new Error("Error loading module 'Physics'. Its dependency 'korma-root-korma' was not found. Please, check whether 'korma-root-korma' is loaded prior to 'Physics'.");
-    }root.Physics = factory(typeof Physics === 'undefined' ? {} : Physics, kotlin, this['klock-root-klock'], this['korim-root-korim'], this['kds-root-kds'], this['korge-root-korge'], this['korio-root-korio'], this['korau-root-korau'], this['kotlinx-coroutines-core'], this['korma-root-korma']);
+    }if (typeof this['kotlinx-coroutines-core'] === 'undefined') {
+      throw new Error("Error loading module 'Physics'. Its dependency 'kotlinx-coroutines-core' was not found. Please, check whether 'kotlinx-coroutines-core' is loaded prior to 'Physics'.");
+    }root.Physics = factory(typeof Physics === 'undefined' ? {} : Physics, kotlin, this['klock-root-klock'], this['korim-root-korim'], this['kds-root-kds'], this['korge-root-korge'], this['korio-root-korio'], this['korau-root-korau'], this['korma-root-korma'], this['kotlinx-coroutines-core']);
   }
-}(this, function (_, Kotlin, $module$klock_root_klock, $module$korim_root_korim, $module$kds_root_kds, $module$korge_root_korge, $module$korio_root_korio, $module$korau_root_korau, $module$kotlinx_coroutines_core, $module$korma_root_korma) {
+}(this, function (_, Kotlin, $module$klock_root_klock, $module$korim_root_korim, $module$kds_root_kds, $module$korge_root_korge, $module$korio_root_korio, $module$korau_root_korau, $module$korma_root_korma, $module$kotlinx_coroutines_core) {
   'use strict';
   var $$importsForInline$$ = _.$$importsForInline$$ || (_.$$importsForInline$$ = {});
   var DateTime = $module$klock_root_klock.com.soywiz.klock.DateTime;
@@ -52,9 +52,6 @@
   var xy_0 = $module$korge_root_korge.com.soywiz.korge.view.xy_2cbtc5$;
   var Image_init = $module$korge_root_korge.com.soywiz.korge.view.Image_init_8drxwf$;
   var ensureNative = $module$korim_root_korim.com.soywiz.korim.bitmap.ensureNative_p18lal$;
-  var L4000 = Kotlin.Long.fromInt(4000);
-  var delay = $module$kotlinx_coroutines_core.kotlinx.coroutines.delay_s8cxhz$;
-  var launchImmediately = $module$korio_root_korio.com.soywiz.korio.async.launchImmediately_hilpzi$;
   var get_degrees = $module$korma_root_korma.com.soywiz.korma.geom.get_degrees_s8ev3n$;
   var first = Kotlin.kotlin.collections.first_2p1efm$;
   var toList = Kotlin.kotlin.collections.toList_us0mfu$;
@@ -62,6 +59,9 @@
   var rangeTo = Kotlin.kotlin.ranges.rangeTo_38ydlf$;
   var println = Kotlin.kotlin.io.println_s8jyv4$;
   var onMouseDrag = $module$korge_root_korge.com.soywiz.korge.input.onMouseDrag_ylcuxg$;
+  var L4000 = Kotlin.Long.fromInt(4000);
+  var delay = $module$kotlinx_coroutines_core.kotlinx.coroutines.delay_s8cxhz$;
+  var launchImmediately = $module$korio_root_korio.com.soywiz.korio.async.launchImmediately_hilpzi$;
   var size = $module$korge_root_korge.com.soywiz.korge.view.size_2cbtc5$;
   var centerOn = $module$korge_root_korge.com.soywiz.korge.view.centerOn_apzp43$;
   var Pair = Kotlin.kotlin.Pair;
@@ -394,6 +394,54 @@
     else
       return instance.doResume(null);
   }
+  function main$lambda$createNewShapeSize(closure$trainingShapesList, closure$newRandomShape, this$) {
+    return function (newSize) {
+      first(closure$trainingShapesList).removeFromParent();
+      var newShapeX = first(closure$trainingShapesList).x;
+      var newShapeY = first(closure$trainingShapesList).y;
+      var newShapeAngle = first(closure$trainingShapesList).angle;
+      closure$newRandomShape.v.size = newSize;
+      closure$trainingShapesList.clear();
+      var newTrainingShape_0 = newTrainingShape(this$, newShapeX, newShapeY, closure$newRandomShape.v, get_boxShapes(this$).eyeSymbol, 0, newShapeAngle);
+      closure$trainingShapesList.add_11rb$(newTrainingShape_0);
+    };
+  }
+  function main$lambda$lambda_1(this$, closure$sizeCircle, closure$createNewShapeSize, closure$trainingY) {
+    return function ($receiver, it) {
+      var tmp$;
+      tmp$ = this$.mouseY;
+      if (rangeTo(closure$trainingY.get_za3lpa$(3), closure$trainingY.get_za3lpa$(2)).contains_mef7kx$(tmp$)) {
+        closure$sizeCircle.y = this$.mouseY;
+        closure$createNewShapeSize(ShapeSize$LARGE_getInstance());
+      } else if (rangeTo(closure$trainingY.get_za3lpa$(2), closure$trainingY.get_za3lpa$(1)).contains_mef7kx$(tmp$)) {
+        closure$createNewShapeSize(ShapeSize$MEDIUM_getInstance());
+        closure$sizeCircle.y = this$.mouseY;
+      } else if (rangeTo(closure$trainingY.get_za3lpa$(1), closure$trainingY.get_za3lpa$(0) - TR_SLIDER_SIZE).contains_mef7kx$(tmp$)) {
+        closure$createNewShapeSize(ShapeSize$SMALL_getInstance());
+        closure$sizeCircle.y = this$.mouseY;
+      } else
+        println('size out of bounds');
+      return Unit;
+    };
+  }
+  function main$lambda$lambda_2(this$, closure$trainingShape, closure$speedCircle, closure$trainingX) {
+    return function ($receiver, it) {
+      var tmp$;
+      tmp$ = this$.mouseX;
+      if (rangeTo(closure$trainingX.get_za3lpa$(0), closure$trainingX.get_za3lpa$(1)).contains_mef7kx$(tmp$)) {
+        closure$trainingShape.v.shapeParams.speed = ShapeSpeed$SLOW_getInstance();
+        closure$speedCircle.x = this$.mouseX;
+      } else if (rangeTo(closure$trainingX.get_za3lpa$(1), closure$trainingX.get_za3lpa$(2)).contains_mef7kx$(tmp$)) {
+        closure$trainingShape.v.shapeParams.speed = ShapeSpeed$MEDIUM_getInstance();
+        closure$speedCircle.x = this$.mouseX;
+      } else if (rangeTo(closure$trainingX.get_za3lpa$(2), closure$trainingX.get_za3lpa$(3) - TR_SLIDER_SIZE).contains_mef7kx$(tmp$)) {
+        closure$trainingShape.v.shapeParams.speed = ShapeSpeed$FAST_getInstance();
+        closure$speedCircle.x = this$.mouseX;
+      } else
+        println('speed out of bounds');
+      return Unit;
+    };
+  }
   function Coroutine$main$lambda$lambda_1(closure$selectedLanguage_0, closure$letsStartTrainingSw_0, closure$letsStartTrainingEn_0, continuation_0) {
     CoroutineImpl.call(this, continuation_0);
     this.exceptionState_0 = 1;
@@ -456,61 +504,13 @@
       }
      while (true);
   };
-  function main$lambda$lambda_1(closure$selectedLanguage_0, closure$letsStartTrainingSw_0, closure$letsStartTrainingEn_0) {
+  function main$lambda$lambda_3(closure$selectedLanguage_0, closure$letsStartTrainingSw_0, closure$letsStartTrainingEn_0) {
     return function (continuation_0, suspended) {
       var instance = new Coroutine$main$lambda$lambda_1(closure$selectedLanguage_0, closure$letsStartTrainingSw_0, closure$letsStartTrainingEn_0, continuation_0);
       if (suspended)
         return instance;
       else
         return instance.doResume(null);
-    };
-  }
-  function main$lambda$createNewShapeSize(closure$trainingShapesList, closure$newRandomShape, this$) {
-    return function (newSize) {
-      first(closure$trainingShapesList).removeFromParent();
-      var newShapeX = first(closure$trainingShapesList).x;
-      var newShapeY = first(closure$trainingShapesList).y;
-      var newShapeAngle = first(closure$trainingShapesList).angle;
-      closure$newRandomShape.v.size = newSize;
-      closure$trainingShapesList.clear();
-      var newTrainingShape_0 = newTrainingShape(this$, newShapeX, newShapeY, closure$newRandomShape.v, get_boxShapes(this$).eyeSymbol, 0, newShapeAngle);
-      closure$trainingShapesList.add_11rb$(newTrainingShape_0);
-    };
-  }
-  function main$lambda$lambda_2(this$, closure$sizeCircle, closure$createNewShapeSize, closure$trainingY) {
-    return function ($receiver, it) {
-      var tmp$;
-      tmp$ = this$.mouseY;
-      if (rangeTo(closure$trainingY.get_za3lpa$(3), closure$trainingY.get_za3lpa$(2)).contains_mef7kx$(tmp$)) {
-        closure$sizeCircle.y = this$.mouseY;
-        closure$createNewShapeSize(ShapeSize$LARGE_getInstance());
-      } else if (rangeTo(closure$trainingY.get_za3lpa$(2), closure$trainingY.get_za3lpa$(1)).contains_mef7kx$(tmp$)) {
-        closure$createNewShapeSize(ShapeSize$MEDIUM_getInstance());
-        closure$sizeCircle.y = this$.mouseY;
-      } else if (rangeTo(closure$trainingY.get_za3lpa$(1), closure$trainingY.get_za3lpa$(0) - TR_SLIDER_SIZE).contains_mef7kx$(tmp$)) {
-        closure$createNewShapeSize(ShapeSize$SMALL_getInstance());
-        closure$sizeCircle.y = this$.mouseY;
-      } else
-        println('size out of bounds');
-      return Unit;
-    };
-  }
-  function main$lambda$lambda_3(this$, closure$trainingShape, closure$speedCircle, closure$trainingX) {
-    return function ($receiver, it) {
-      var tmp$;
-      tmp$ = this$.mouseX;
-      if (rangeTo(closure$trainingX.get_za3lpa$(0), closure$trainingX.get_za3lpa$(1)).contains_mef7kx$(tmp$)) {
-        closure$trainingShape.v.shapeParams.speed = ShapeSpeed$SLOW_getInstance();
-        closure$speedCircle.x = this$.mouseX;
-      } else if (rangeTo(closure$trainingX.get_za3lpa$(1), closure$trainingX.get_za3lpa$(2)).contains_mef7kx$(tmp$)) {
-        closure$trainingShape.v.shapeParams.speed = ShapeSpeed$MEDIUM_getInstance();
-        closure$speedCircle.x = this$.mouseX;
-      } else if (rangeTo(closure$trainingX.get_za3lpa$(2), closure$trainingX.get_za3lpa$(3) - TR_SLIDER_SIZE).contains_mef7kx$(tmp$)) {
-        closure$trainingShape.v.shapeParams.speed = ShapeSpeed$FAST_getInstance();
-        closure$speedCircle.x = this$.mouseX;
-      } else
-        println('speed out of bounds');
-      return Unit;
     };
   }
   function Coroutine$main$lambda$buildCartouche$lambda$lambda$lambda(closure$soundsProperties_0, closure$selectedLanguage_0, closure$keyIndex_0, closure$keyROWIndex_0, continuation_0) {
@@ -1503,7 +1503,6 @@
             var shapeY = BOXHEIGHT - ShapeSize$MEDIUM_getInstance().size;
             var trainingX = listOf([TR_X0, TR_WIDTH / 3 + TR_X0, 2 * TR_WIDTH / 3 + TR_X0, TR_X0 + TR_WIDTH]);
             var trainingY = listOf([TR_Y0 + TR_HEIGHT, 2 * TR_HEIGHT / 3 + TR_Y0, TR_HEIGHT / 3 + TR_Y0, TR_Y0]);
-            launchImmediately(this.local$$receiver, main$lambda$lambda_1(selectedLanguage, this.local$letsStartTrainingSw, this.local$letsStartTrainingEn));
             var $receiver_0_5 = addTo(new Container_init(), this.local$$receiver);
             var $receiver_0_6 = addTo(new RoundRect_init(TR_WIDTH, TR_HEIGHT, 16.0, 16.0, color.Colors.DARKBLUE, true), $receiver_0_5);
             roundRect$lambda($receiver_0_6);
@@ -1564,8 +1563,9 @@
             var $receiver_0_13 = addTo(new Circle_init(TR_SLIDER_SIZE / 2, color.Colors.DARKBLUE, true), this.local$$receiver);
             circle$lambda($receiver_0_13);
             var speedCircle = xy_0($receiver_0_13, speedX.v, trainingY.get_za3lpa$(0) + 6);
-            onMouseDrag(sizeCircle, main$lambda$lambda_2(this.local$$receiver, sizeCircle, createNewShapeSize, trainingY));
-            onMouseDrag(speedCircle, main$lambda$lambda_3(this.local$$receiver, trainingShape, speedCircle, trainingX));
+            onMouseDrag(sizeCircle, main$lambda$lambda_1(this.local$$receiver, sizeCircle, createNewShapeSize, trainingY));
+            onMouseDrag(speedCircle, main$lambda$lambda_2(this.local$$receiver, trainingShape, speedCircle, trainingX));
+            launchImmediately(this.local$$receiver, main$lambda$lambda_3(selectedLanguage, this.local$letsStartTrainingSw, this.local$letsStartTrainingEn));
             var cartoucheSets = listOf([cartoucheNumber, cartoucheSize, cartoucheSpeed, cartoucheColor, cartoucheShapes, cartoucheSymbols]);
             var buildCartouche = main$lambda$buildCartouche(valueRects, groupSymbols, this.local$keyROWIndex, cartoucheSets, soundsProperties, selectedLanguage, this.local$$receiver, keyBoard);
             var customShapes = {v: listOf([createRandomShapeBasedOnLevel(this.local$gamePlay.level), createRandomShapeBasedOnLevel(this.local$gamePlay.level), createRandomShapeBasedOnLevel(this.local$gamePlay.level), createRandomShapeBasedOnLevel(this.local$gamePlay.level)])};
