@@ -1173,10 +1173,86 @@
       }
     };
   }
-  function Coroutine$main$lambda$lambda_2(closure$gamePlay_0, closure$acceptCheckTrainingLevel_0, closure$acceptCheckPlayLevel_0, it_0, continuation_0) {
+  function Coroutine$main$lambda$lambda$lambda(closure$selectedLanguage_0, closure$letsStartTrainingSw_0, closure$letsStartTrainingEn_0, continuation_0) {
+    CoroutineImpl.call(this, continuation_0);
+    this.exceptionState_0 = 1;
+    this.local$closure$selectedLanguage = closure$selectedLanguage_0;
+    this.local$closure$letsStartTrainingSw = closure$letsStartTrainingSw_0;
+    this.local$closure$letsStartTrainingEn = closure$letsStartTrainingEn_0;
+    this.local$index = void 0;
+  }
+  Coroutine$main$lambda$lambda$lambda.$metadata$ = {
+    kind: Kotlin.Kind.CLASS,
+    simpleName: null,
+    interfaces: [CoroutineImpl]
+  };
+  Coroutine$main$lambda$lambda$lambda.prototype = Object.create(CoroutineImpl.prototype);
+  Coroutine$main$lambda$lambda$lambda.prototype.constructor = Coroutine$main$lambda$lambda$lambda;
+  Coroutine$main$lambda$lambda$lambda.prototype.doResume = function () {
+    do
+      try {
+        switch (this.state_0) {
+          case 0:
+            this.local$index = 0;
+            this.state_0 = 2;
+            continue;
+          case 1:
+            throw this.exception_0;
+          case 2:
+            if (this.local$index > 2) {
+              this.state_0 = 5;
+              continue;
+            }
+            if (this.local$closure$selectedLanguage.v === 1)
+              this.local$closure$letsStartTrainingSw.get_za3lpa$(this.local$index).play_gfl8bq$();
+            else
+              this.local$closure$letsStartTrainingEn.get_za3lpa$(this.local$index).play_gfl8bq$();
+            this.state_0 = 3;
+            this.result_0 = delay(L4000, this);
+            if (this.result_0 === COROUTINE_SUSPENDED)
+              return COROUTINE_SUSPENDED;
+            continue;
+          case 3:
+            this.state_0 = 4;
+            continue;
+          case 4:
+            this.local$index++;
+            this.state_0 = 2;
+            continue;
+          case 5:
+            return Unit;
+          default:this.state_0 = 1;
+            throw new Error('State Machine Unreachable execution');
+        }
+      } catch (e) {
+        if (this.state_0 === 1) {
+          this.exceptionState_0 = this.state_0;
+          throw e;
+        } else {
+          this.state_0 = this.exceptionState_0;
+          this.exception_0 = e;
+        }
+      }
+     while (true);
+  };
+  function main$lambda$lambda$lambda(closure$selectedLanguage_0, closure$letsStartTrainingSw_0, closure$letsStartTrainingEn_0) {
+    return function (continuation_0, suspended) {
+      var instance = new Coroutine$main$lambda$lambda$lambda(closure$selectedLanguage_0, closure$letsStartTrainingSw_0, closure$letsStartTrainingEn_0, continuation_0);
+      if (suspended)
+        return instance;
+      else
+        return instance.doResume(null);
+    };
+  }
+  function Coroutine$main$lambda$lambda_2(closure$gamePlay_0, closure$infoMessage_0, closure$selectedLanguage_0, closure$letsStartTrainingSw_0, closure$letsStartTrainingEn_0, this$_0, closure$acceptCheckTrainingLevel_0, closure$acceptCheckPlayLevel_0, it_0, continuation_0) {
     CoroutineImpl.call(this, continuation_0);
     this.exceptionState_0 = 1;
     this.local$closure$gamePlay = closure$gamePlay_0;
+    this.local$closure$infoMessage = closure$infoMessage_0;
+    this.local$closure$selectedLanguage = closure$selectedLanguage_0;
+    this.local$closure$letsStartTrainingSw = closure$letsStartTrainingSw_0;
+    this.local$closure$letsStartTrainingEn = closure$letsStartTrainingEn_0;
+    this.local$this$ = this$_0;
     this.local$closure$acceptCheckTrainingLevel = closure$acceptCheckTrainingLevel_0;
     this.local$closure$acceptCheckPlayLevel = closure$acceptCheckPlayLevel_0;
   }
@@ -1192,9 +1268,12 @@
       try {
         switch (this.state_0) {
           case 0:
-            if (this.local$closure$gamePlay.level === 0)
-              return this.local$closure$acceptCheckTrainingLevel(), Unit;
-            else {
+            if (this.local$closure$gamePlay.level === 0) {
+              if (this.local$closure$infoMessage.v) {
+                launchImmediately(this.local$this$, main$lambda$lambda$lambda(this.local$closure$selectedLanguage, this.local$closure$letsStartTrainingSw, this.local$closure$letsStartTrainingEn));
+                this.local$closure$infoMessage.v = false;
+              }return this.local$closure$acceptCheckTrainingLevel(), Unit;
+            } else {
               return this.local$closure$acceptCheckPlayLevel(), Unit;
             }
 
@@ -1214,9 +1293,9 @@
       }
      while (true);
   };
-  function main$lambda$lambda_4(closure$gamePlay_0, closure$acceptCheckTrainingLevel_0, closure$acceptCheckPlayLevel_0) {
+  function main$lambda$lambda_4(closure$gamePlay_0, closure$infoMessage_0, closure$selectedLanguage_0, closure$letsStartTrainingSw_0, closure$letsStartTrainingEn_0, this$_0, closure$acceptCheckTrainingLevel_0, closure$acceptCheckPlayLevel_0) {
     return function (it_0, continuation_0, suspended) {
-      var instance = new Coroutine$main$lambda$lambda_2(closure$gamePlay_0, closure$acceptCheckTrainingLevel_0, closure$acceptCheckPlayLevel_0, it_0, continuation_0);
+      var instance = new Coroutine$main$lambda$lambda_2(closure$gamePlay_0, closure$infoMessage_0, closure$selectedLanguage_0, closure$letsStartTrainingSw_0, closure$letsStartTrainingEn_0, this$_0, closure$acceptCheckTrainingLevel_0, closure$acceptCheckPlayLevel_0, it_0, continuation_0);
       if (suspended)
         return instance;
       else
@@ -1239,6 +1318,7 @@
     this.local$tmp$_8 = void 0;
     this.local$tmp$_9 = void 0;
     this.local$tmp$_10 = void 0;
+    this.local$infoMessage = void 0;
     this.local$gamePlay = void 0;
     this.local$startUpDelay100Ms = void 0;
     this.local$keyROWIndex = void 0;
@@ -1268,6 +1348,7 @@
         switch (this.state_0) {
           case 0:
             var tmp$, tmp$_0;
+            this.local$infoMessage = {v: true};
             this.local$gamePlay = new GamePlay(0);
             this.local$startUpDelay100Ms = 30;
             this.local$keyROWIndex = mutableListOf([0, 0, 0, 0, 0, 0]);
@@ -1590,7 +1671,7 @@
             });
             var tmp$_3;
             if ((tmp$_3 = acceptButton != null ? get_mouse(acceptButton) : null) != null) {
-              prop_1.get(tmp$_3).add_qlkmfe$(doMouseEvent$lambda$lambda(tmp$_3, main$lambda$lambda_4(this.local$gamePlay, acceptCheckTrainingLevel, acceptCheckPlayLevel)));
+              prop_1.get(tmp$_3).add_qlkmfe$(doMouseEvent$lambda$lambda(tmp$_3, main$lambda$lambda_4(this.local$gamePlay, this.local$infoMessage, selectedLanguage, this.local$letsStartTrainingSw, this.local$letsStartTrainingEn, this.local$$receiver, acceptCheckTrainingLevel, acceptCheckPlayLevel)));
             }
             return acceptButton;
           default:this.state_0 = 1;
