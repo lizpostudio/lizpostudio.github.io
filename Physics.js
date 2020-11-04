@@ -42,14 +42,14 @@
   var std = $module$korio_root_korio.com.soywiz.korio.file.std;
   var readBitmapFont = $module$korim_root_korim.com.soywiz.korim.font.readBitmapFont_2axf5n$;
   var readBitmap = $module$korim_root_korim.com.soywiz.korim.format.readBitmap_vi5npc$;
-  var listOf = Kotlin.kotlin.collections.listOf_i5x0yv$;
-  var readSound = $module$korau_root_korau.com.soywiz.korau.sound.readSound_rbebel$;
   var xy = $module$korge_root_korge.com.soywiz.korge.view.xy_ajix5r$;
   var alpha = $module$korge_root_korge.com.soywiz.korge.view.alpha_k0wlkj$;
+  var xy_0 = $module$korge_root_korge.com.soywiz.korge.view.xy_2cbtc5$;
+  var listOf = Kotlin.kotlin.collections.listOf_i5x0yv$;
+  var readSound = $module$korau_root_korau.com.soywiz.korau.sound.readSound_rbebel$;
   var Unit = Kotlin.kotlin.Unit;
   var get_lastIndex = Kotlin.kotlin.collections.get_lastIndex_55thoc$;
   var SpriteAnimation = $module$korge_root_korge.com.soywiz.korge.view.SpriteAnimation;
-  var xy_0 = $module$korge_root_korge.com.soywiz.korge.view.xy_2cbtc5$;
   var Image_init = $module$korge_root_korge.com.soywiz.korge.view.Image_init_8drxwf$;
   var ensureNative = $module$korim_root_korim.com.soywiz.korim.bitmap.ensureNative_p18lal$;
   var get_degrees = $module$korma_root_korma.com.soywiz.korma.geom.get_degrees_s8ev3n$;
@@ -72,8 +72,6 @@
   var addUpdater = $module$korge_root_korge.com.soywiz.korge.view.addUpdater_t24ukx$;
   var L750 = Kotlin.Long.fromInt(750);
   var toMutableList = Kotlin.kotlin.collections.toMutableList_4c7yge$;
-  var get_hrMilliseconds = $module$klock_root_klock.com.soywiz.klock.hr.get_hrMilliseconds_s8ev3n$;
-  var addHrUpdater = $module$korge_root_korge.com.soywiz.korge.view.addHrUpdater_klr9dr$;
   var Html$FontFace$Bitmap = $module$korge_root_korge.com.soywiz.korge.html.Html.FontFace.Bitmap;
   var TextFormat = $module$korge_root_korge.com.soywiz.korge.ui.TextFormat;
   var TextSkin = $module$korge_root_korge.com.soywiz.korge.ui.TextSkin;
@@ -81,9 +79,11 @@
   var centerBetween = $module$korge_root_korge.com.soywiz.korge.view.centerBetween_wgq76x$;
   var addTo = $module$korge_root_korge.com.soywiz.korge.view.addTo_fct211$;
   var anchor = $module$korge_root_korge.com.soywiz.korge.view.anchor_11wmr3$;
+  var get_hrMilliseconds = $module$klock_root_klock.com.soywiz.klock.hr.get_hrMilliseconds_s8ev3n$;
   var get_cosine = $module$korma_root_korma.com.soywiz.korma.geom.get_cosine_72g52s$;
   var get_sine = $module$korma_root_korma.com.soywiz.korma.geom.get_sine_72g52s$;
   var plus = $module$korma_root_korma.com.soywiz.korma.geom.plus_e486mh$;
+  var addHrUpdater = $module$korge_root_korge.com.soywiz.korge.view.addHrUpdater_klr9dr$;
   var Image = $module$korge_root_korge.com.soywiz.korge.view.Image;
   var Point = $module$korma_root_korma.com.soywiz.korma.geom.Point;
   var internal = Kotlin.kotlin.coroutines.js.internal;
@@ -98,11 +98,10 @@
   var TimeSpan = $module$klock_root_klock.com.soywiz.klock.TimeSpan;
   var Random_0 = Kotlin.kotlin.random.Random;
   var random = Kotlin.kotlin.ranges.random_xmiyix$;
+  var Text = $module$korge_root_korge.com.soywiz.korge.view.Text;
   var Sprite_init = $module$korge_root_korge.com.soywiz.korge.view.Sprite_init_i2lxqn$;
   var Circle_init = $module$korge_root_korge.com.soywiz.korge.view.Circle;
-  var Text = $module$korge_root_korge.com.soywiz.korge.view.Text;
   var UIText_init = $module$korge_root_korge.com.soywiz.korge.ui.UIText;
-  var get_keys = $module$korge_root_korge.com.soywiz.korge.input.get_keys_gohfi1$;
   var Enum = Kotlin.kotlin.Enum;
   var throwISE = Kotlin.throwISE;
   var Bitmap32 = $module$korim_root_korim.com.soywiz.korim.bitmap.Bitmap32;
@@ -211,13 +210,13 @@
   function container$lambda($receiver) {
     return Unit;
   }
+  function text$lambda($receiver) {
+    return Unit;
+  }
   function sprite$lambda($receiver) {
     return Unit;
   }
   function circle$lambda($receiver) {
-    return Unit;
-  }
-  function text$lambda($receiver) {
     return Unit;
   }
   function uiText$lambda($receiver) {
@@ -889,7 +888,7 @@
   }
   function main$lambda$acceptCheckPlayLevel$lambda$lambda(closure$spriteHeroGoRight) {
     return function ($receiver, time) {
-      var scale = time.div_seyb0p$(get_hrMilliseconds(18));
+      var scale = time.div_fv8bff$(TimeSpan.Companion.fromMilliseconds_14dthe$(18));
       if (closure$spriteHeroGoRight.x < TR_X0) {
         advance(closure$spriteHeroGoRight, 3.0 * scale, get_degrees(0));
         closure$spriteHeroGoRight.playAnimation_hcsbl9$(1, void 0, TimeSpan.Companion.fromMilliseconds_14dthe$(90));
@@ -899,7 +898,7 @@
   function main$lambda$acceptCheckPlayLevel$lambda_0(closure$isGameOver, closure$spriteHeroGoRight, this$, closure$resetGamePlay) {
     return function () {
       closure$isGameOver.v = false;
-      addHrUpdater(this$, main$lambda$acceptCheckPlayLevel$lambda$lambda(closure$spriteHeroGoRight));
+      addUpdater(this$, main$lambda$acceptCheckPlayLevel$lambda$lambda(closure$spriteHeroGoRight));
       closure$resetGamePlay();
       restart(this$);
       return Unit;
@@ -1322,7 +1321,8 @@
     this.local$gamePlay = void 0;
     this.local$startUpDelay100Ms = void 0;
     this.local$keyROWIndex = void 0;
-    this.local$backgroundImage = void 0;
+    this.local$backGroundImage = void 0;
+    this.local$textLoading = void 0;
     this.local$acceptButtonImage = void 0;
     this.local$spriteMap = void 0;
     this.local$nationsFlags = void 0;
@@ -1333,6 +1333,9 @@
     this.local$letsStartTrainingEn = void 0;
     this.local$letsStartTrainingSw = void 0;
     this.local$goodJobSound = void 0;
+    this.local$selectedLanguage = void 0;
+    this.local$spriteHeroGoRight = void 0;
+    this.local$cannonAnimation = void 0;
     this.local$$receiver = $receiver_0;
   }
   Coroutine$main$lambda.$metadata$ = {
@@ -1367,7 +1370,16 @@
               return COROUTINE_SUSPENDED;
             continue;
           case 3:
-            this.local$backgroundImage = this.result_0;
+            var backgroundImage = this.result_0;
+            var $receiver_0_0 = addTo(Image_init(backgroundImage, 0.0, 0.0), this.local$$receiver);
+            image$lambda($receiver_0_0);
+            this.local$backGroundImage = alpha(xy($receiver_0_0, 0, 0), 0.7);
+            var text = 'LOADING ...';
+            var color_0 = color.Colors.WHITE;
+            var font = get_font();
+            var $receiver_0_1 = addTo(Text.Companion.invoke_8ii8iq$(text, 70.0, color_0, font), this.local$$receiver);
+            text$lambda($receiver_0_1);
+            this.local$textLoading = xy_0($receiver_0_1, TR_X0, TR_Y0);
             this.state_0 = 4;
             this.result_0 = readBitmap(std.resourcesVfs.get_61zpoe$('accept_enter.png'), void 0, void 0, this);
             if (this.result_0 === COROUTINE_SUSPENDED)
@@ -1515,6 +1527,28 @@
             continue;
           case 24:
             this.local$goodJobSound = listOf([this.local$tmp$_7, this.local$tmp$_8, this.result_0]);
+            var supportedLanguages = listOf(['EN', 'SW', 'OJ']);
+            this.local$selectedLanguage = {v: 0};
+            var $receiver_0_2 = addTo(new Container_init(), this.local$$receiver);
+            var $receiver_0_3 = addTo(Image_init(this.local$nationsFlags.get_za3lpa$(this.local$selectedLanguage.v), 0.0, 0.0), $receiver_0_2);
+            image$lambda($receiver_0_3);
+            xy($receiver_0_3, 10, 10);
+            var language = $receiver_0_2;
+            var prop = getPropertyCallableRef('click', 1, function ($receiver_0) {
+              return $receiver_0.click;
+            });
+            var tmp$_1;
+            if ((tmp$_1 = language != null ? get_mouse(language) : null) != null) {
+              prop.get(tmp$_1).add_qlkmfe$(doMouseEvent$lambda$lambda(tmp$_1, main$lambda$lambda(this.local$selectedLanguage, supportedLanguages, language, this.local$nationsFlags, this.local$$receiver)));
+            }
+            var moveRightAnimation = SpriteAnimation.Companion.invoke_1yoynw$(this.local$spriteMap, 150, 188, 0, 0, 2, 2);
+            var $receiver_0_4 = addTo(Sprite_init(moveRightAnimation, 0.0, 0.0), this.local$$receiver);
+            sprite$lambda($receiver_0_4);
+            this.local$spriteHeroGoRight = alpha(xy_0($receiver_0_4, 50.0, 660.0), 1.0);
+            var cannonAnimationSprite = SpriteAnimation.Companion.invoke_1yoynw$(this.local$spriteCannon, 300, 300, 0, 0, 3, 2);
+            var $receiver_0_5 = addTo(Sprite_init(cannonAnimationSprite, 0.0, 0.0), this.local$$receiver);
+            sprite$lambda($receiver_0_5);
+            this.local$cannonAnimation = alpha(xy_0($receiver_0_5, BOXWIDTH - 180, BOXHEIGHT - 75), 1.0);
             this.state_0 = 25;
             this.result_0 = loadAudioPropsEn(this);
             if (this.result_0 === COROUTINE_SUSPENDED)
@@ -1536,37 +1570,13 @@
             continue;
           case 27:
             var soundsProperties = listOf([this.local$tmp$_9, this.local$tmp$_10, this.result_0]);
-            var supportedLanguages = listOf(['EN', 'SW', 'OJ']);
-            var selectedLanguage = {v: 0};
-            var $receiver_0_0 = addTo(Image_init(this.local$backgroundImage, 0.0, 0.0), this.local$$receiver);
-            image$lambda($receiver_0_0);
-            var backGroundImage = alpha(xy($receiver_0_0, 0, 0), 0.7);
-            var $receiver_0_1 = addTo(new Container_init(), this.local$$receiver);
-            var $receiver_0_2 = addTo(Image_init(this.local$nationsFlags.get_za3lpa$(selectedLanguage.v), 0.0, 0.0), $receiver_0_1);
-            image$lambda($receiver_0_2);
-            xy($receiver_0_2, 10, 10);
-            var language = $receiver_0_1;
-            var prop = getPropertyCallableRef('click', 1, function ($receiver_0) {
-              return $receiver_0.click;
-            });
-            var tmp$_1;
-            if ((tmp$_1 = language != null ? get_mouse(language) : null) != null) {
-              prop.get(tmp$_1).add_qlkmfe$(doMouseEvent$lambda$lambda(tmp$_1, main$lambda$lambda(selectedLanguage, supportedLanguages, language, this.local$nationsFlags, this.local$$receiver)));
-            }
-            var moveRightAnimation = SpriteAnimation.Companion.invoke_1yoynw$(this.local$spriteMap, 150, 188, 0, 0, 2, 2);
-            var $receiver_0_3 = addTo(Sprite_init(moveRightAnimation, 0.0, 0.0), this.local$$receiver);
-            sprite$lambda($receiver_0_3);
-            var spriteHeroGoRight = alpha(xy_0($receiver_0_3, 50.0, 660.0), 1.0);
-            var cannonAnimationSprite = SpriteAnimation.Companion.invoke_1yoynw$(this.local$spriteCannon, 300, 300, 0, 0, 3, 2);
-            var $receiver_0_4 = addTo(Sprite_init(cannonAnimationSprite, 0.0, 0.0), this.local$$receiver);
-            sprite$lambda($receiver_0_4);
-            var cannonAnimation = alpha(xy_0($receiver_0_4, BOXWIDTH - 180, BOXHEIGHT - 75), 1.0);
+            this.local$textLoading.removeFromParent();
             var isGameOver = {v: false};
             var prop_0 = getPropertyCallableRef('click', 1, function ($receiver_0) {
               return $receiver_0.click;
             });
             var tmp$_2;
-            if ((tmp$_2 = spriteHeroGoRight != null ? get_mouse(spriteHeroGoRight) : null) != null) {
+            if ((tmp$_2 = this.local$spriteHeroGoRight != null ? get_mouse(this.local$spriteHeroGoRight) : null) != null) {
               prop_0.get(tmp$_2).add_qlkmfe$(doMouseEvent$lambda$lambda(tmp$_2, main$lambda$lambda_0));
             }
             this.local$$receiver.views.gameWindow.icon = get_boxShapes(this.local$$receiver).eyeSymbol;
@@ -1584,29 +1594,29 @@
             var shapeY = BOXHEIGHT - ShapeSize$MEDIUM_getInstance().size;
             var trainingX = listOf([TR_X0, TR_WIDTH / 3 + TR_X0, 2 * TR_WIDTH / 3 + TR_X0, TR_X0 + TR_WIDTH]);
             var trainingY = listOf([TR_Y0 + TR_HEIGHT, 2 * TR_HEIGHT / 3 + TR_Y0, TR_HEIGHT / 3 + TR_Y0, TR_Y0]);
-            var $receiver_0_5 = addTo(new Container_init(), this.local$$receiver);
-            var $receiver_0_6 = addTo(new RoundRect_init(TR_WIDTH, TR_HEIGHT, 16.0, 16.0, color.Colors.DARKBLUE, true), $receiver_0_5);
-            roundRect$lambda($receiver_0_6);
-            xy_0($receiver_0_6, trainingX.get_za3lpa$(0), trainingY.get_za3lpa$(3));
-            var $receiver_0_7 = addTo(new RoundRect_init(TR_WIDTH - 12, TR_HEIGHT - 12, 16.0, 16.0, color.Colors.LIGHTBLUE, true), $receiver_0_5);
+            var $receiver_0_6 = addTo(new Container_init(), this.local$$receiver);
+            var $receiver_0_7 = addTo(new RoundRect_init(TR_WIDTH, TR_HEIGHT, 16.0, 16.0, color.Colors.DARKBLUE, true), $receiver_0_6);
             roundRect$lambda($receiver_0_7);
-            xy_0($receiver_0_7, trainingX.get_za3lpa$(0) + 6, trainingY.get_za3lpa$(3) + 6);
-            var $receiver_0_8 = addTo(new RoundRect_init(TR_SLIDER_SIZE, TR_HEIGHT, 16.0, 16.0, color.Colors.LIGHTBLUE, true), $receiver_0_5);
+            xy_0($receiver_0_7, trainingX.get_za3lpa$(0), trainingY.get_za3lpa$(3));
+            var $receiver_0_8 = addTo(new RoundRect_init(TR_WIDTH - 12, TR_HEIGHT - 12, 16.0, 16.0, color.Colors.LIGHTBLUE, true), $receiver_0_6);
             roundRect$lambda($receiver_0_8);
-            xy_0($receiver_0_8, trainingX.get_za3lpa$(3) + 6, trainingY.get_za3lpa$(3));
-            var $receiver_0_9 = addTo(new RoundRect_init(TR_WIDTH, TR_SLIDER_SIZE, 16.0, 16.0, color.Colors.LIGHTBLUE, true), $receiver_0_5);
+            xy_0($receiver_0_8, trainingX.get_za3lpa$(0) + 6, trainingY.get_za3lpa$(3) + 6);
+            var $receiver_0_9 = addTo(new RoundRect_init(TR_SLIDER_SIZE, TR_HEIGHT, 16.0, 16.0, color.Colors.LIGHTBLUE, true), $receiver_0_6);
             roundRect$lambda($receiver_0_9);
-            xy_0($receiver_0_9, trainingX.get_za3lpa$(0), trainingY.get_za3lpa$(0) + 6);
+            xy_0($receiver_0_9, trainingX.get_za3lpa$(3) + 6, trainingY.get_za3lpa$(3));
+            var $receiver_0_10 = addTo(new RoundRect_init(TR_WIDTH, TR_SLIDER_SIZE, 16.0, 16.0, color.Colors.LIGHTBLUE, true), $receiver_0_6);
+            roundRect$lambda($receiver_0_10);
+            xy_0($receiver_0_10, trainingX.get_za3lpa$(0), trainingY.get_za3lpa$(0) + 6);
             for (var lines = 1; lines <= 2; lines++) {
-              var $receiver_0_10 = addTo(new RoundRect_init(TR_SLIDER_LINE, TR_SLIDER_SIZE, 2.0, 2.0, color.Colors.DARKBLUE, true), $receiver_0_5);
-              roundRect$lambda($receiver_0_10);
-              xy_0($receiver_0_10, trainingX.get_za3lpa$(lines), trainingY.get_za3lpa$(0) + 6);
-              var $receiver_0_11 = addTo(new RoundRect_init(TR_SLIDER_SIZE, TR_SLIDER_LINE, 2.0, 2.0, color.Colors.DARKBLUE, true), $receiver_0_5);
+              var $receiver_0_11 = addTo(new RoundRect_init(TR_SLIDER_LINE, TR_SLIDER_SIZE, 2.0, 2.0, color.Colors.DARKBLUE, true), $receiver_0_6);
               roundRect$lambda($receiver_0_11);
-              xy_0($receiver_0_11, trainingX.get_za3lpa$(3) + 6, trainingY.get_za3lpa$(lines));
+              xy_0($receiver_0_11, trainingX.get_za3lpa$(lines), trainingY.get_za3lpa$(0) + 6);
+              var $receiver_0_12 = addTo(new RoundRect_init(TR_SLIDER_SIZE, TR_SLIDER_LINE, 2.0, 2.0, color.Colors.DARKBLUE, true), $receiver_0_6);
+              roundRect$lambda($receiver_0_12);
+              xy_0($receiver_0_12, trainingX.get_za3lpa$(3) + 6, trainingY.get_za3lpa$(lines));
             }
 
-            var trainingBox = $receiver_0_5;
+            var trainingBox = $receiver_0_6;
             var newRandomShape = {v: createRandomShapeBasedOnLevel(this.local$gamePlay.level)};
             var trainingShape = {v: newTrainingShape(this.local$$receiver, trainingX.get_za3lpa$(1), trainingY.get_za3lpa$(1), newRandomShape.v, get_boxShapes(this.local$$receiver).eyeSymbol, 0, get_degrees(30))};
             var trainingShapesList = mutableListOf([trainingShape.v]);
@@ -1638,17 +1648,17 @@
             }
 
             var speedX = {v: tmp$_0};
-            var $receiver_0_12 = addTo(new Circle_init(TR_SLIDER_SIZE / 2, color.Colors.DARKBLUE, true), this.local$$receiver);
-            circle$lambda($receiver_0_12);
-            var sizeCircle = xy_0($receiver_0_12, trainingX.get_za3lpa$(3) + 6, sizeY.v);
             var $receiver_0_13 = addTo(new Circle_init(TR_SLIDER_SIZE / 2, color.Colors.DARKBLUE, true), this.local$$receiver);
             circle$lambda($receiver_0_13);
-            var speedCircle = xy_0($receiver_0_13, speedX.v, trainingY.get_za3lpa$(0) + 6);
+            var sizeCircle = xy_0($receiver_0_13, trainingX.get_za3lpa$(3) + 6, sizeY.v);
+            var $receiver_0_14 = addTo(new Circle_init(TR_SLIDER_SIZE / 2, color.Colors.DARKBLUE, true), this.local$$receiver);
+            circle$lambda($receiver_0_14);
+            var speedCircle = xy_0($receiver_0_14, speedX.v, trainingY.get_za3lpa$(0) + 6);
             onMouseDrag(sizeCircle, main$lambda$lambda_1(this.local$$receiver, sizeCircle, createNewShapeSize, trainingY));
             onMouseDrag(speedCircle, main$lambda$lambda_2(this.local$$receiver, trainingShape, speedCircle, trainingX));
-            launchImmediately(this.local$$receiver, main$lambda$lambda_3(selectedLanguage, this.local$letsStartTrainingSw, this.local$letsStartTrainingEn));
+            launchImmediately(this.local$$receiver, main$lambda$lambda_3(this.local$selectedLanguage, this.local$letsStartTrainingSw, this.local$letsStartTrainingEn));
             var cartoucheSets = listOf([cartoucheNumber, cartoucheSize, cartoucheSpeed, cartoucheColor, cartoucheShapes, cartoucheSymbols]);
-            var buildCartouche = main$lambda$buildCartouche(valueRects, groupSymbols, this.local$keyROWIndex, cartoucheSets, soundsProperties, selectedLanguage, this.local$$receiver, keyBoard);
+            var buildCartouche = main$lambda$buildCartouche(valueRects, groupSymbols, this.local$keyROWIndex, cartoucheSets, soundsProperties, this.local$selectedLanguage, this.local$$receiver, keyBoard);
             var customShapes = {v: listOf([createRandomShapeBasedOnLevel(this.local$gamePlay.level), createRandomShapeBasedOnLevel(this.local$gamePlay.level), createRandomShapeBasedOnLevel(this.local$gamePlay.level), createRandomShapeBasedOnLevel(this.local$gamePlay.level)])};
             createRandomShapeBasedOnLevel(this.local$gamePlay.level);
             var symbolsList = listOf([get_boxShapes(this.local$$receiver).noseSymbol, get_boxShapes(this.local$$receiver).mouthSymbol, ensureNative(this.local$earImage), get_boxShapes(this.local$$receiver).eyeSymbol]);
@@ -1658,20 +1668,20 @@
             var extraSetsCount = {v: 0};
             var countShapes = {v: mutableListOf([0, 0, 0, 0])};
             var cannonShots = {v: mutableListOf([0, 0, 0, 0])};
-            var resetGamePlay = main$lambda$resetGamePlay(spriteHeroGoRight, this.local$gamePlay, customShapes, extraSetsCount, countShapes, cannonShots);
-            var launchSetsBasedOnTimer = main$lambda$launchSetsBasedOnTimer(this.local$gamePlay, this.local$startUpDelay100Ms, backGroundImage, cannonAnimation, countShapes, cannonShots, this.local$cannonSound, customNumberAndShape, shapeX, shapeY, customShapes, extraSetsCount, isGameOver, symbolsList, this.local$$receiver);
-            var $receiver_0_14 = addTo(new Container_init(), this.local$$receiver);
-            var $receiver_0_15 = addTo(Image_init(this.local$acceptButtonImage, 0.0, 0.0), $receiver_0_14);
-            image$lambda($receiver_0_15);
-            var acceptButton = alpha(xy_0($receiver_0_14, TR_X0 + TR_WIDTH + 6 + this.local$acceptButtonImage.width, trainingY.get_za3lpa$(0) - this.local$acceptButtonImage.height), 1.0);
-            var acceptCheckPlayLevel = main$lambda$acceptCheckPlayLevel(this.local$keyROWIndex, soundsProperties, selectedLanguage, this.local$goodJobSound, this.local$$receiver, isGameOver, cannonAnimation, spriteHeroGoRight, resetGamePlay, this.local$klackSound);
-            var acceptCheckTrainingLevel = main$lambda$acceptCheckTrainingLevel(trainingShapesList, trainingStageShapesList, this.local$goodJobSound, selectedLanguage, this.local$$receiver, this.local$gamePlay, acceptButton, trainingBox, sizeCircle, speedCircle, buildCartouche, launchSetsBasedOnTimer, newRandomShape, trainingX, trainingY, trainingShape, newStageShape, shapeX, shapeY, trainingStageShape, sizeY, speedX, this.local$klackSound);
+            var resetGamePlay = main$lambda$resetGamePlay(this.local$spriteHeroGoRight, this.local$gamePlay, customShapes, extraSetsCount, countShapes, cannonShots);
+            var launchSetsBasedOnTimer = main$lambda$launchSetsBasedOnTimer(this.local$gamePlay, this.local$startUpDelay100Ms, this.local$backGroundImage, this.local$cannonAnimation, countShapes, cannonShots, this.local$cannonSound, customNumberAndShape, shapeX, shapeY, customShapes, extraSetsCount, isGameOver, symbolsList, this.local$$receiver);
+            var $receiver_0_15 = addTo(new Container_init(), this.local$$receiver);
+            var $receiver_0_16 = addTo(Image_init(this.local$acceptButtonImage, 0.0, 0.0), $receiver_0_15);
+            image$lambda($receiver_0_16);
+            var acceptButton = alpha(xy_0($receiver_0_15, TR_X0 + TR_WIDTH + 6 + this.local$acceptButtonImage.width, trainingY.get_za3lpa$(0) - this.local$acceptButtonImage.height), 1.0);
+            var acceptCheckPlayLevel = main$lambda$acceptCheckPlayLevel(this.local$keyROWIndex, soundsProperties, this.local$selectedLanguage, this.local$goodJobSound, this.local$$receiver, isGameOver, this.local$cannonAnimation, this.local$spriteHeroGoRight, resetGamePlay, this.local$klackSound);
+            var acceptCheckTrainingLevel = main$lambda$acceptCheckTrainingLevel(trainingShapesList, trainingStageShapesList, this.local$goodJobSound, this.local$selectedLanguage, this.local$$receiver, this.local$gamePlay, acceptButton, trainingBox, sizeCircle, speedCircle, buildCartouche, launchSetsBasedOnTimer, newRandomShape, trainingX, trainingY, trainingShape, newStageShape, shapeX, shapeY, trainingStageShape, sizeY, speedX, this.local$klackSound);
             var prop_1 = getPropertyCallableRef('click', 1, function ($receiver_0) {
               return $receiver_0.click;
             });
             var tmp$_3;
             if ((tmp$_3 = acceptButton != null ? get_mouse(acceptButton) : null) != null) {
-              prop_1.get(tmp$_3).add_qlkmfe$(doMouseEvent$lambda$lambda(tmp$_3, main$lambda$lambda_4(this.local$gamePlay, this.local$infoMessage, selectedLanguage, this.local$letsStartTrainingSw, this.local$letsStartTrainingEn, this.local$$receiver, acceptCheckTrainingLevel, acceptCheckPlayLevel)));
+              prop_1.get(tmp$_3).add_qlkmfe$(doMouseEvent$lambda$lambda(tmp$_3, main$lambda$lambda_4(this.local$gamePlay, this.local$infoMessage, this.local$selectedLanguage, this.local$letsStartTrainingSw, this.local$letsStartTrainingEn, this.local$$receiver, acceptCheckTrainingLevel, acceptCheckPlayLevel)));
             }
             return acceptButton;
           default:this.state_0 = 1;
@@ -1747,59 +1757,8 @@
         return instance.doResume(null);
     };
   }
-  function Coroutine$showGameOver$lambda$lambda(closure$restart_0, it_0, continuation_0) {
-    CoroutineImpl.call(this, continuation_0);
-    this.exceptionState_0 = 1;
-    this.local$closure$restart = closure$restart_0;
-    this.local$it = it_0;
-  }
-  Coroutine$showGameOver$lambda$lambda.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
-    simpleName: null,
-    interfaces: [CoroutineImpl]
-  };
-  Coroutine$showGameOver$lambda$lambda.prototype = Object.create(CoroutineImpl.prototype);
-  Coroutine$showGameOver$lambda$lambda.prototype.constructor = Coroutine$showGameOver$lambda$lambda;
-  Coroutine$showGameOver$lambda$lambda.prototype.doResume = function () {
-    do
-      try {
-        switch (this.state_0) {
-          case 0:
-            switch (this.local$it.key.name) {
-              case 'ENTER':
-              case 'SPACE':
-                return this.local$closure$restart(), Unit;
-              default:return Unit;
-            }
-
-            return Unit;
-          case 1:
-            throw this.exception_0;
-          default:this.state_0 = 1;
-            throw new Error('State Machine Unreachable execution');
-        }
-      } catch (e) {
-        if (this.state_0 === 1) {
-          this.exceptionState_0 = this.state_0;
-          throw e;
-        } else {
-          this.state_0 = this.exceptionState_0;
-          this.exception_0 = e;
-        }
-      }
-     while (true);
-  };
-  function showGameOver$lambda$lambda(closure$restart_0) {
-    return function (it_0, continuation_0, suspended) {
-      var instance = new Coroutine$showGameOver$lambda$lambda(closure$restart_0, it_0, continuation_0);
-      if (suspended)
-        return instance;
-      else
-        return instance.doResume(null);
-    };
-  }
-  function showGameOver($receiver_1, onRestart) {
-    var $receiver_0_0 = addTo(new Container_init(), $receiver_1);
+  function showGameOver($receiver, onRestart) {
+    var $receiver_0_0 = addTo(new Container_init(), $receiver);
     var format = new TextFormat(color.Colors.YELLOW, 50, new Html$FontFace$Bitmap(get_font()));
     var timeElapsed = DateTime.Companion.nowUnixLong().subtract(nowStarting).div(Kotlin.Long.fromInt(1000));
     var minutesElapsed = timeElapsed.div(Kotlin.Long.fromInt(60)).toInt();
@@ -1831,12 +1790,6 @@
     var tmp$;
     if ((tmp$ = $receiver_0_3 != null ? get_mouse($receiver_0_3) : null) != null) {
       prop.get(tmp$).add_qlkmfe$(doMouseEvent$lambda$lambda(tmp$, showGameOver$lambda$lambda$lambda(restart)));
-    }var prop_0 = getPropertyCallableRef('onKeyDown', 1, function ($receiver) {
-      return $receiver.onKeyDown;
-    });
-    var tmp$_0;
-    if ((tmp$_0 = $receiver_0_0 != null ? get_keys($receiver_0_0) : null) != null) {
-      prop_0.get(tmp$_0).add_25kf2w$(showGameOver$lambda$lambda(restart));
     }return $receiver_0_0;
   }
   function restart($receiver) {
@@ -2677,7 +2630,6 @@
     var dy = get_sine($receiver.angle) * speed;
     $receiver.x = $receiver.x + dx;
     $receiver.y = $receiver.y + dy;
-    $receiver.rotationDegrees = $receiver.rotationDegrees + speed / 2;
     if ($receiver.y < TR_Y0 + $receiver.height / 2 && dy < 0)
       $receiver.angle = plus($receiver.angle, get_degrees_0(get_0($receiver.random_0, 45.0, 60.0)));
     if ($receiver.x < TR_X0 + $receiver.width / 2 && dx < 0)
@@ -2711,7 +2663,6 @@
     var dy = get_sine($receiver.angle) * speed;
     $receiver.x = $receiver.x + dx;
     $receiver.y = $receiver.y + dy;
-    $receiver.rotationDegrees = $receiver.rotationDegrees + speed / 2;
     if ($receiver.y < BOXTOPY + $receiver.height / 2 && dy < 0)
       $receiver.angle = plus($receiver.angle, get_degrees_0(get_0($receiver.random_0, 45.0, 60.0)));
     if ($receiver.x < BOXTOPX + $receiver.width / 2 && dx < 0)
